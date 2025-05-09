@@ -22,7 +22,6 @@ export default function Header() {
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
-  // Add useEffect to handle client-side mounting
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -174,7 +173,6 @@ export default function Header() {
             )}
           </div>
 
-          {/* Only render the theme button when component is mounted on client */}
           {mounted && (
             <Button
               variant="ghost"

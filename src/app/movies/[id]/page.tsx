@@ -59,7 +59,6 @@ export default function MovieDetails() {
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : "/placeholder.png";
 
-  // Format release date
   const releaseDate = movie.release_date
     ? new Date(movie.release_date).toLocaleDateString("en-US", {
         year: "numeric",
@@ -68,7 +67,6 @@ export default function MovieDetails() {
       })
     : "Release date unknown";
 
-  // Calculate movie duration in hours and minutes
   const hours = Math.floor((movie.runtime || 0) / 60);
   const minutes = (movie.runtime || 0) % 60;
   const formattedRuntime = movie.runtime
@@ -77,7 +75,6 @@ export default function MovieDetails() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/90">
-      {/* Hero Section with Backdrop */}
       <div
         className="relative w-full h-[70vh] overflow-hidden"
         style={{
@@ -122,10 +119,8 @@ export default function MovieDetails() {
         )}
       </div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-4 -mt-32 md:-mt-48 relative z-20">
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Poster */}
           <div className="w-full md:w-1/3 max-w-xs mx-auto md:mx-0 mb-8 md:mb-0">
             <div className="relative aspect-[2/3] rounded-xl overflow-hidden shadow-2xl transition-transform hover:scale-[1.02]">
               <Image
@@ -138,10 +133,8 @@ export default function MovieDetails() {
             </div>
           </div>
 
-          {/* Details */}
           <div className="w-full md:w-2/3">
             <div className="bg-black/40 backdrop-blur-md rounded-xl p-6 md:p-8 shadow-xl">
-              {/* Rating and Meta Data */}
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-8 text-white/90">
                 <div className="flex items-center gap-1.5">
                   <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
@@ -161,7 +154,6 @@ export default function MovieDetails() {
                 </div>
               </div>
 
-              {/* Overview */}
               <div className="mb-8">
                 <h2 className="text-xl font-semibold mb-3 text-white">
                   Overview
@@ -171,7 +163,6 @@ export default function MovieDetails() {
                 </p>
               </div>
 
-              {/* Genres */}
               <div>
                 <h2 className="text-xl font-semibold mb-3 text-white">
                   Genres
@@ -198,7 +189,6 @@ export default function MovieDetails() {
         </div>
       </div>
 
-      {/* Trailer Modal */}
       {showTrailer && trailer && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <div className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">

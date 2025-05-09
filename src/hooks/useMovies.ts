@@ -8,9 +8,7 @@ import {
   getMovieVideos,
 } from "@/lib/api";
 
-// Define a proper fetcher function that can handle different API endpoints
 const fetcher = async (key: string) => {
-  // Parse the key to extract the endpoint and parameters
   const [endpoint, ...params] = key.split("|");
 
   switch (endpoint) {
